@@ -1,5 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\SFModels\SFModels.csproj" />
+    <ProjectReference Include="..\SFBL\SFBL.csproj" />
+    <ProjectReference Include="..\SFDL\SFDL.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>

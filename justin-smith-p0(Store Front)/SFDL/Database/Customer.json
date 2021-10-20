@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "Justin",
+        "Address": "333 Test Drive",
+        "Email": "test@gmail.com",
+        "Phone Number": "333-333-3333",
+        "Orders": 
+        [{"id":"1234", "Name": "Justin", "StoreId": "123", "Products": [{"Doll": 2, "Pogo Stick": 1}]},
+        {"id":"1236", "Name": "Justin", "StoreId": "122", "Products": [{"Frisbee": 3, "Soccer Ball": 1}]}]
+    },
+    {
+        "Name": "Stephen",
+        "Address": "111 Revature Road",
+        "Email": "revature@gmail.com",
+        "Phone Number": "444-444-4444",
+        "Orders": 
+        [{"id":"1235", "Name": "Stephen", "StoreId": "123", "Products": [{"Hulla Hoop": 2, "Remote Control Car": 1}]},
+        {"id":"1237", "Name": "Stephen", "StoreId": "125", "Products": [{"Trike": 1, "Scooter": 1}]}]
+    }
+]
