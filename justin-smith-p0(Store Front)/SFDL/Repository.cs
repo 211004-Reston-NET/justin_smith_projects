@@ -35,13 +35,14 @@ namespace SFDL
                 List<Store> listOfStr = new List<Store>();
                 listOfStr.Add(newStore);
 
-                File.WriteAllText(_filepath+"Store.json");
+                File.WriteAllText(_filepath+"Store.json",_jsonString);
             }
             catch(SystemException ex)
             {
                 throw ex;
             }
             return JsonSerializer.Deserialize<List<Store>>(_jsonString);
+
         }
     }
 }

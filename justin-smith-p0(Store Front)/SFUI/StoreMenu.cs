@@ -8,7 +8,7 @@ namespace SFUI
         {
             Console.WriteLine("Welcome to the Store Menu!");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[3] - List of Stores");
+            Console.WriteLine("[3] - View Stores");
             Console.WriteLine("[2] - View Products");
             Console.WriteLine("[0] - Go to MainMenu");
         }

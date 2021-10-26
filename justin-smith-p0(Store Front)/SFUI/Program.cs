@@ -8,6 +8,9 @@ namespace SFUI
     {
         static void Main(string[] args)
         {
+            int x = 10;
+            object obj = x;
+
             bool repeat = true;
 
             IMenu page = new MainMenu();
@@ -22,18 +25,21 @@ namespace SFUI
                     case MenuType.MainMenu:
                         page = new MainMenu();
                         break;
-                    case MenuType.AddCustomer:
-                        page = new AddCustomer();
-                        break;
-                    case MenuType.SearchCustomer:
-                        page = new SearchCustomer();
-                        break;
+                    // case MenuType.AddCustomer:
+                    //     page = new AddCustomer();
+                    //     break;
+                    // case MenuType.SearchCustomers:
+                    //     page = new SearchCustomers();
+                    //     break;
+                    case MenuType.SearchStores:
+                    page = new SearchStores(new StoreBL(new Respository()));
+                    break;
                     case MenuType.StoreMenu:
                         page = new StoreMenu();
                         break;
-                    case MenuType.PlaceOrder:
-                        page = new PlaceOrder();
-                        break;
+                    // case MenuType.PlaceOrder:
+                    //     page = new PlaceOrder();
+                    //     break;
                     case MenuType.ViewOrder:
                         page = new ViewOrder();
                         break;
@@ -48,7 +54,7 @@ namespace SFUI
                         repeat = false;
                         break;
 
-
+                    
                 }
             }
         }

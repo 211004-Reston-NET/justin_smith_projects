@@ -19,7 +19,7 @@ namespace SFUI
             switch (userChoice)
             {
                 case "3":
-                    return MenuType.SearchCustomer;
+                    return MenuType.SearchCustomers;
                 case "2":
                     return MenuType.AddCustomer;
                 case "0":

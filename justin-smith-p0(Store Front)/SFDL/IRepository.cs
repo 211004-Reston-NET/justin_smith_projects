@@ -3,7 +3,7 @@ using SFModels;
 
 namespace SFDL
 {
-    public class IRepository
+    public interface IRepository
     {
         /// <summary>
         /// It will add a store in our database
@@ -18,5 +18,6 @@ namespace SFDL
         /// <returns>It will return a list of store</returns>
         List<Store> GetAllStores();
 
+        
     }
 }

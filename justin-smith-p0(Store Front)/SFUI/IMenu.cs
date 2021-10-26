@@ -1,21 +1,26 @@
-﻿namespace SFUI;
-
-public enum MenuType
+﻿namespace SFUI
 {
-    MainMenu,
-    CustomerMenu,
-    StoreMenu,
-    AddCustomer,
-    SearchCustomers,
-    SearchStores,
-    Inventory, //ViewInventory, Restock Inventory
-    PlaceOrder,
-    ViewOrder,
-    Exit,
-}
+
+    public enum MenuType
+    {
+        MainMenu,
+        CustomerMenu,
+        StoreMenu,
+        AddCustomer,
+        SearchCustomers,
+        SearchStores,
+        PlaceOrder,
+        ViewOrder,
+        AddStore,
+        OrderMenu,
+        ProductMenu,
+        
+        Exit,
+    }
 
 public interface IMenu
     {
+
         /// <summary>
         /// Will display the overall menu of the current menu class 
         /// and the choice you/the user can make
@@ -28,4 +33,8 @@ public interface IMenu
         /// </summary>
         /// <returns>This method should return a menu that the user will go to next</returns>
         MenuType YourChoice();
+
+
+        
     }
+}
