@@ -6,7 +6,9 @@ namespace SFModels
     {
         public string LineItems {get; set;}
         public string OrderLocation {get; set;}
-        public int Price {get; set;}
+        public int Price {get; set;} 
+
+        
     
 
 

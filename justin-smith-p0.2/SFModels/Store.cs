@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace SFModels
 {
-    public class StoreFront
+    public class Store
     {
         public string Name {get; set;}
         public string Address {get; set;}
-        public List<Products> Products {get; set;}
-        public List<Orders> Orders {get; set;}
+        // public List<Product> Products {get; set;}
+        // public List<Order> Orders {get; set;}
 
 
         

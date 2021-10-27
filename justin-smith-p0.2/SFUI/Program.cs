@@ -1,4 +1,6 @@
 ﻿using System;
+using SFBL;
+using SFDL;
 
 namespace SFUI
 {
@@ -6,32 +8,42 @@ namespace SFUI
     {
         static void Main(string[] args)
         {
+        
             bool repeat = true;
+            IMenu page = new MainMenu();
+            
+
             while (repeat)
             {
+                
                 Console.Clear();
-                Console.WriteLine("Welcome to the Store");
-                string userChoice;
-                Console.WriteLine("[1] - Do you want to clear the screen");
-                Console.WriteLine("[2] - Do you want to exit out of the program?");
-                userChoice = Console.ReadLine();
+                page.Menu();
+                MenuType selectMenu = page.YourChoice();
+                
 
-                switch (userChoice)
+                switch (selectMenu)
                 {
-                    case "1":
-                        Console.WriteLine("User has chosen to clear the screen");
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadLine();
+                    case MenuType.MainMenu:
+                        page = new MainMenu();
                         break;
-                    case "2":
-                        Console.WriteLine("You have exited the program!");
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadLine();
+                    case MenuType.StoreMenu:
+                        page = new StoreMenu();
+                        break;
+                    case MenuType.CustomerMenu:
+                        page = new CustomerMenu();
+                        break;
+                    case MenuType.ShowStore:
+                        page = new ShowStore(new StoreBL(new Repository()));
+                        break;
+                    case MenuType.ExitMenu:
                         repeat = false;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Choice: Press enter to try again");
+                        Console.WriteLine("You are exiting the application.  Press enter to continue.");
                         Console.ReadLine();
+                    break;
+                    default:
+                        Console.WriteLine("You forgot an enum in your code");
+                        repeat = false;
+                        
                         break;
                 }
             }
