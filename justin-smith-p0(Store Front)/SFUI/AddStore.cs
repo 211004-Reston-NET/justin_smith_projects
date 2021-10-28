@@ -9,26 +9,20 @@ namespace SFUI
         private static Store _store = new Store();
         private IStoreBL _storeBL;
     
-        // public string Cheese {get; set;}
-        // private string butterScotch;
 
         public AddStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
 
-        public Store store2 = new Store();
-
         public void Menu()
         {
             Console.WriteLine("Adding a new Store");
             Console.WriteLine("Name - " + _store.Name);
             Console.WriteLine("Address - " + _store.Address);
-            Console.WriteLine("Phone Number - " + _store.Phone);
             Console.WriteLine("[6] - Add Store");
             Console.WriteLine("[5] - Input value for Name");
             Console.WriteLine("[4] - Input value for Address");
-            Console.WriteLine("[2] - Input value for Phone Number");
             Console.WriteLine("[0] - Go Back");
             
         }
@@ -58,10 +52,6 @@ namespace SFUI
                 case "4":
                     Console.WriteLine("Type in the value of the Address");
                     _store.Address = Console.ReadLine();
-                    return MenuType.AddStore;
-                case "2":
-                    Console.WriteLine("Type in the value of the Phone Number");
-                    _store.Phone = Console.ReadLine();
                     return MenuType.AddStore;
                 case "0":
                     return MenuType.MainMenu; 

@@ -16,8 +16,14 @@ namespace SFDL
         /// This will return a list of stores stored in the database
         /// </summary>
         /// <returns>It will return a list of store</returns>
-        List<Store> GetAllStores();
+        List<Store> GetAllStore();
 
+        /// <summary>
+        /// This will give a specific store based on ID
+        /// </summary>
+        /// <param name="p_id">This is the ID it will look for</param>
+        /// <returns>Returns the Store</returns>
+        Store GetStoreById(int p_id);
         
     }
 }

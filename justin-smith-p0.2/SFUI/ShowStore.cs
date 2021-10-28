@@ -24,11 +24,21 @@ namespace SFUI
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
+            Console.ReadLine();
         }
 
         public MenuType YourChoice()
         {
-            throw new NotImplementedException();
+            string userChoice = Console.ReadLine();
+            switch (userChoice)
+            {
+                case "0":
+                    return MenuType.StoreMenu;
+                default:
+                    Console.WriteLine("Invalid Choice. Press Enter to Continue");
+                    Console.ReadLine();
+                    return MenuType.ShowStore;
+            }
         }
     }
 }

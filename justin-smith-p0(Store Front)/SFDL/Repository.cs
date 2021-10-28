@@ -13,7 +13,7 @@ namespace SFDL
         private string _jsonString;
         public Store AddStore(Store p_store)
         {
-            List<Store> listOfStores = GetAllStores();
+            List<Store> listOfStores = GetAllStore();
             listOfStores.Add(p_store);
 
             _jsonString = JsonSerializer.Serialize(listOfStores,new JsonSerializerOptions{WriteIndented=true});
@@ -23,7 +23,7 @@ namespace SFDL
             return p_store;
         }
 
-        public List<Store> GetAllStores()
+        public List<Store> GetAllStore()
         {
             try
             {
@@ -36,6 +36,8 @@ namespace SFDL
                 listOfStr.Add(newStore);
 
                 File.WriteAllText(_filepath+"Store.json",_jsonString);
+
+                _jsonString = File.ReadAllText(_filepath+"store.json");
             }
             catch(SystemException ex)
             {
@@ -43,6 +45,11 @@ namespace SFDL
             }
             return JsonSerializer.Deserialize<List<Store>>(_jsonString);
 
+        }
+
+        public Store GetStoreById(int p_id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

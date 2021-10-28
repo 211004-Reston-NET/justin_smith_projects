@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using SFModels;
+﻿// using System;
+// using System.Collections.Generic;
+// using SFModels;
 
-namespace SFDL
-{
-    public interface IRepository
-    {
-        Store AddStore();
+// namespace SFDL
+// {
+//     public interface IRepository
+//     {
+//         Store AddStore();
 
-        List<Store> GetAllStore();
+//         List<Store> GetAllStore();
         
-    }
-}
+//     }
+// }

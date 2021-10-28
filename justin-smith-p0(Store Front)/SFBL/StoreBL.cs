@@ -15,7 +15,7 @@ namespace SFBL
     {
         private IRepository _repo;
         /// <summary>
-        /// 
+        ///  Defining dependencies this class needs to operate
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
         public StoreBL(IRepository p_repo)
@@ -36,7 +36,7 @@ namespace SFBL
         public List<Store> GetAllStores()
         {
             //Maybe my business operation needs to capitalize every name of a store
-            List<Store> listOfStore = _repo.GetAllStores();
+            List<Store> listOfStore = _repo.GetAllStore();
             for (int i = 0; i < listOfStore.Count; i++)
             {
                 listOfStore[i].Name = listOfStore[i].Name.ToLower(); 
@@ -45,15 +45,25 @@ namespace SFBL
             return listOfStore;
         }
 
-        public List<Store> GetStores(string p_name)
+        public List<Store> GetStore(string p_name)
         {
-            List<Store> listOfStore = _repo.GetAllStores();
+            List<Store> listOfStore = _repo.GetAllStore();
             
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfStore.Where(cust => cust.Name.ToLower().Contains(p_name.ToLower())).ToList();
+            return listOfStore.Where(store => store.Name.ToLower().Contains(p_name.ToLower())).ToList();
+        }
+        
+        public Store GetStoreById(int p_id)
+        {
+            Store storeFound = _repo.GetStoreById(p_id);
+            if (storeFound == null)
+            {
+                throw new Exception("Store was not found!");
+            }
+            return storeFound;
         }
     }
 }

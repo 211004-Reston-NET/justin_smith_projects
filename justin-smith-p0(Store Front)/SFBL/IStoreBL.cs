@@ -26,7 +26,17 @@ namespace SFBL
         /// <param name="p_name">This is the string it will check to find stores if their name has those letters</param>
         /// <returns>It will return stores it found</returns>
 
-        List<Store> GetStores(string p_name);
+        List<Store> GetStore(string p_name);
+
+        /// <summary>
+        ///  Will return a store based on the ID
+        /// </summary>
+        /// <param name="p_id">This is the ID it will check</param>
+        /// <returns>Returns store it found</returns>
+
+        Store GetStoreById(int p_id);
+
+        
 
 
 
