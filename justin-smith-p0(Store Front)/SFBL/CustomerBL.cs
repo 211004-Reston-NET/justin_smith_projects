@@ -69,6 +69,8 @@ namespace SFBL
             //ToLower will lowercase the string to make it not case sensitive
             return listOfCustomer.Where(customer => customer.CustEmail.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        
         
         public Customer GetCustomerById(int p_id)
         {

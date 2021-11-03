@@ -47,9 +47,21 @@ namespace SFUI
                     return new CurrentStoreId(new StoreBL(new RespositoryCloud(new SFDataBaseContext(options))));
                 case MenuType.CurrentStoreName:
                     return new CurrentStoreName(new StoreBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                
+                case MenuType.CustomerOrder:
+                    return new CustomerOrder(new SOrderBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                case MenuType.ViewCustomerOrder:
+                    return new ViewCustomerOrder(new SOrderBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                case MenuType.StoreOrder:
+                    return new StoreOrder(new SOrderBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                case MenuType.ViewStoreOrder:
+                    return new ViewStoreOrder(new SOrderBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                
 
+                case MenuType.ShowInventory:
+                    return new ShowInventory(new InventoryBL(new RespositoryCloud(new SFDataBaseContext(options))));
                 case MenuType.CurrentInventoryId:
-                    return new CurrentStoreId(new StoreBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                    return new CurrentInventoryId(new InventoryBL(new RespositoryCloud(new SFDataBaseContext(options))));
                 default:
                     return null;
             }

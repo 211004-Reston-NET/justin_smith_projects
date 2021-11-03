@@ -29,7 +29,14 @@ namespace SFDL
 
         List<Customer> GetAllCustomer();
 
-        Inventory GetInventoryById(int p_id);
+        List<Inventory> GetInventoryById(int p_id);
+
+        List<SOrder> GetStoreOrderById(int p_id);
+
+        List<SOrder> GetCustomerOrderById(int p_id);
+
+
+
         
     }
 }

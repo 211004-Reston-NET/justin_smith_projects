@@ -8,8 +8,9 @@ namespace SFUI
         {
             Console.WriteLine("Welcome to the Customer Menu!");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[3] - List of Customers");
+            Console.WriteLine("[1] - List of Customers");
             Console.WriteLine("[2] - Add a Customer");
+            Console.WriteLine("[3] - View Customer Orders");
             Console.WriteLine("[0] - Go to MainMenu");
         }
 
@@ -19,9 +20,11 @@ namespace SFUI
             switch (userChoice)
             {
                 case "3":
-                    return MenuType.ShowCustomer;
+                    return MenuType.CustomerOrder;
                 case "2":
                     return MenuType.AddCustomer;
+                case "1":
+                    return MenuType.CustomerOrder;
                 case "0":
                     return MenuType.MainMenu;
                 default:

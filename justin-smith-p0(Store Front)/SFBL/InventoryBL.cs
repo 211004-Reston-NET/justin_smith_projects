@@ -23,13 +23,18 @@ namespace SFBL
             _repo = p_repo;
         }
 
-        
-        public Inventory GetInventoryById(int p_id)
+        // public List<Inventory> GetInventoryById(int p_id)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+
+        public List<Inventory> GetInventoryById(int p_id)
         {
-            Inventory invFound = _repo.GetInventoryById(p_id);
+            List<Inventory> invFound = _repo.GetInventoryById(p_id);
             if (invFound == null)
             {
-                throw new Exception("Store was not found!");
+                throw new Exception("Store Inventory was not found!");
             }
             return invFound;
         }

@@ -16,7 +16,7 @@ namespace SFUI
         }
         public void Menu()
         {   
-            Console.WriteLine("[3] - View Store Inventory");
+            Console.WriteLine("[1] - View Store Inventory");
             Console.WriteLine("[0] - Go Back");
         }
 
@@ -26,7 +26,7 @@ namespace SFUI
             switch (userChoice)
             {
 
-                case "3":
+                case "1":
                     Console.WriteLine("Enter an ID for the Store you want to find");
                     _findInventory.StoreId = Int32.Parse(Console.ReadLine());
                     return MenuType.CurrentInventoryId;

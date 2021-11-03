@@ -8,8 +8,8 @@ namespace SFUI
         {
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[4] - View Customers");
-            Console.WriteLine("[3] - View Stores");
+            Console.WriteLine("[1] - View Customers");
+            Console.WriteLine("[2] - View Stores");
             Console.WriteLine("[0] - Exit");
         }
 
@@ -23,9 +23,9 @@ namespace SFUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "4":
+                case "1":
                     return MenuType.CustomerMenu;
-                case "3":
+                case "2":
                     return MenuType.StoreMenu;
                 case "0":
                     return MenuType.Exit;

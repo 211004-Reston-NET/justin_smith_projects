@@ -4,6 +4,7 @@
     public enum MenuType
     {
         MainMenu,
+        
         CustomerMenu,
         StoreMenu,
 
@@ -23,6 +24,10 @@
         ShowInventory,
         CurrentInventoryId,
 
+        CustomerOrder,
+        StoreOrder,
+        ViewCustomerOrder,
+        ViewStoreOrder,
 
 
         PlaceOrder,

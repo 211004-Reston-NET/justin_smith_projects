@@ -1,26 +1,30 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using SFBL;
 using SFModels;
 
 namespace SFUI
 {
-    public class CurrentInventoryId : IMenu
+    public class ViewCustomerOrder : IMenu
     {
-        private IInventoryBL _invBL;
-        public CurrentInventoryId(IInventoryBL p_invBL)
+        private ISOrderBL _orderBL;
+        public ViewCustomerOrder(ISOrderBL p_orderBL)
         {
-            this._invBL = p_invBL;
+            this._orderBL = p_orderBL;
         }
 
         public void Menu()
         {
-            Inventory inventory = _invBL.GetInventoryById(ShowInventory._findInventory.StoreId);
+            List<SOrder> orderList = _orderBL.GetCustomerOrderById(CustomerOrder._findCustOrder.CustId);
 
 
                 Console.WriteLine("====================");
-                Console.WriteLine(inventory);
-                Console.WriteLine("====================");
+                foreach(SOrder order in orderList)
+                {
+                    Console.WriteLine(order);
+                    Console.WriteLine("====================");
+                }
+                
             
             Console.WriteLine("[0] - Go Back");
         }
@@ -31,14 +35,13 @@ namespace SFUI
 
             switch (userChoice)
             {
-            
                 case "0":
-                    return MenuType.ShowInventory;
+                    return MenuType.CustomerOrder;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.CurrentInventoryId;
+                    return MenuType.ViewCustomerOrder;
             }
         }
     }

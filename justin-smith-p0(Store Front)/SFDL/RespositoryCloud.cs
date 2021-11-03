@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using SFModels;
 using Entity = SFDL.Entities;
 using Model = SFModels;
 
@@ -106,19 +107,75 @@ namespace SFDL
             };
 
         }
-        
-        public Model.Inventory GetInventoryById(int p_id)
-        {
-            Entity.Inventory inventoryToFind = _context.Inventories.Find(p_id);
+
+        // public Model.SOrder GetOrderById(int p_id)
+        // {
+        //     Entity.SOrder orderToFind = _context.SOrders.Find(p_id);
             
-            return new Model.Inventory()
-            {
-                StoreId = inventoryToFind.StoreId,
-                ProdId = inventoryToFind.ProdId,
-                Stock = inventoryToFind.Stock
-            };
+        //     return new Model.SOrder()
+        //     {
+        //         OrderId = orderToFind.OrderId,
+        //         StoreId = orderToFind.StoreId,
+        //         CustId = orderToFind.CustId,
+        //         OrderPrice = orderToFind.OrderPrice,
+        //     };  
+        // }
+
+
+        public List<Model.SOrder> GetStoreOrderById(int p_id)
+        {
+
+            return _context.SOrders
+                                .Where(ord => ord.StoreId == p_id)
+                                .Select(order => 
+                new Model.SOrder()
+                {   
+                    OrderId = order.OrderId,
+                    StoreId = order.StoreId,
+                    CustId = order.CustId,
+                    OrderPrice = order.OrderPrice
+                }
+            ).ToList();
+        
         }
 
+        public List<Model.SOrder> GetCustomerOrderById(int p_id)
+        {
+
+            return _context.SOrders
+                                .Where(ord => ord.CustId == p_id)
+                                .Select(order => 
+                new Model.SOrder()
+                {   
+                    OrderId = order.OrderId,
+                    StoreId = order.StoreId,
+                    CustId = order.CustId,
+                    OrderPrice = order.OrderPrice
+                }
+            ).ToList();
+        
+        }
+
+
+        public List<Model.Inventory> GetInventoryById(int p_id)
+        {
+            // Entity.Inventory inventoryToFind = _context.Inventories.FirstOrDefault(inv => inv.StoreId == p_id );
+
+
+            return _context.Inventories
+                                .Where(inv => inv.StoreId == p_id)
+                                .Select(inventory => 
+                new Model.Inventory()
+                {
+                    StoreId = inventory.StoreId,
+                    ProdId = inventory.ProdId,
+                    Stock = inventory.Stock
+                }
+            ).ToList();
+        
+        }
+
+        
 
         public List<Model.Customer> GetAllCustomer()
         {
@@ -136,6 +193,12 @@ namespace SFDL
             ).ToList();
 
         }
+
+       
+
+
+
+
 
 
         // public List<Model.Review> GetAllReview(Model.Restaurant p_rest)
@@ -167,6 +230,6 @@ namespace SFDL
         //           Restaurant = p_rest
         //         })
         //         .ToList(); //Convert it into List
-        
+
     }
 }

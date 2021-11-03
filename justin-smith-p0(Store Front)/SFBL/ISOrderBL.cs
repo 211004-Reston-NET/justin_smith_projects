@@ -3,7 +3,7 @@ using SFModels;
 
 namespace SFBL
 {
-    public interface IInventoryBL
+    public interface ISOrderBL 
     {
         
 
@@ -13,7 +13,9 @@ namespace SFBL
         // /// <param name="p_name">This is the string it will check to find stores if their name has those letters</param>
         // /// <returns>It will return stores it found</returns>
 
-        List<Inventory> GetInventoryById(int p_id);
+        List<SOrder> GetCustomerOrderById(int p_id);
+
+        List<SOrder> GetStoreOrderById(int p_id);
 
         
 
