@@ -20,19 +20,23 @@ namespace SFUI
 
             Console.Clear();
             if(listOfStore.Count == 0)
-            {
+            {   
+                Console.WriteLine("\n====================");
                 Console.WriteLine("No results found");
+                Console.WriteLine("====================\n");
             }
             else
             {
-                Console.WriteLine("This is the search result");
+                Console.WriteLine("\n====================");
+                Console.WriteLine("Search Results");
+                Console.WriteLine("====================\n");
+
             }
 
             foreach (Store store in listOfStore)
             {
-                Console.WriteLine("====================");
                 Console.WriteLine(store);
-                Console.WriteLine("====================");
+                Console.WriteLine("====================\n");
             }
             Console.WriteLine("[0] - Go Back");
         }

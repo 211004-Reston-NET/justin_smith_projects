@@ -48,7 +48,7 @@ namespace SFBL
             return listOfCustomer;
         }
 
-        public List<Customer> GetCustomer(string p_name)
+        public List<Customer> GetCustomerName(string p_name)
         {
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             

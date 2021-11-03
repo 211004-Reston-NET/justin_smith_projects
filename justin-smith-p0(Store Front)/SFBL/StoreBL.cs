@@ -67,9 +67,9 @@ namespace SFBL
         //     return listOfStore.Where(store => store.StoreId == p_name).ToList();
         // }
         
-        public Store GetStoreById(int p_id)
+        public List<Store> GetStoreById(int p_id)
         {
-            Store storeFound = _repo.GetStoreById(p_id);
+            List<Store> storeFound = _repo.GetStoreById(p_id);
             if (storeFound == null)
             {
                 throw new Exception("Store was not found!");

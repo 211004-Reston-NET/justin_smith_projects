@@ -24,6 +24,9 @@
         ShowInventory,
         CurrentInventoryId,
 
+        ShowProduct,
+        CurrentProduct,
+
         CustomerOrder,
         StoreOrder,
         ViewCustomerOrder,

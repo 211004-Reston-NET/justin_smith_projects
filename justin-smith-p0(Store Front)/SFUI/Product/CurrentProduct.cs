@@ -5,19 +5,19 @@ using SFModels;
 
 namespace SFUI
 {
-    public class CurrentInventoryId : IMenu
+    public class CurrentProduct : IMenu
     {
-        private IInventoryBL _invBL;
-        public CurrentInventoryId(IInventoryBL p_invBL)
+        private IProductBL _prodBL;
+        public CurrentProduct(IProductBL p_prodBL)
         {
-            this._invBL = p_invBL;
+            this._prodBL = p_prodBL;
         }
 
         public void Menu()
         {
-            List<Inventory> inventoryList = _invBL.GetInventoryById(ShowInventory._findInventory.StoreId);
+            List<Product> productList = _prodBL.GetProductById(ShowProduct._findProduct.ProdId);
 
-            if(inventoryList.Count == 0)
+            if(productList.Count == 0)
             {   
                 Console.WriteLine("\n====================");
                 Console.WriteLine("No results found");
@@ -30,9 +30,9 @@ namespace SFUI
                 Console.WriteLine("====================\n");
 
             }
-            foreach (Inventory inv in inventoryList)
+            foreach (Product prod in productList)
             {
-                Console.WriteLine(inv);
+                Console.WriteLine(prod);
                 Console.WriteLine("====================\n");
             }
             
@@ -47,7 +47,7 @@ namespace SFUI
             {
             
                 case "0":
-                    return MenuType.ShowInventory;
+                    return MenuType.ShowProduct;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

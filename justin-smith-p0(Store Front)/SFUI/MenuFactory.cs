@@ -62,6 +62,12 @@ namespace SFUI
                     return new ShowInventory(new InventoryBL(new RespositoryCloud(new SFDataBaseContext(options))));
                 case MenuType.CurrentInventoryId:
                     return new CurrentInventoryId(new InventoryBL(new RespositoryCloud(new SFDataBaseContext(options))));
+
+                case MenuType.CurrentProduct:
+                    return new CurrentProduct(new ProductBL(new RespositoryCloud(new SFDataBaseContext(options))));
+                case MenuType.ShowProduct:
+                    return new ShowProduct(new ProductBL(new RespositoryCloud(new SFDataBaseContext(options))));
+
                 default:
                     return null;
             }

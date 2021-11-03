@@ -18,11 +18,22 @@ namespace SFUI
             List<SOrder> orderList = _orderBL.GetStoreOrderById(StoreOrder._findStoreOrder.StoreId);
 
 
-                Console.WriteLine("====================");
+            if(orderList.Count == 0)
+            {   
+                Console.WriteLine("\n====================");
+                Console.WriteLine("No results found");
+                Console.WriteLine("====================\n");
+            }
+            else
+            {
+                Console.WriteLine("\n====================");
+                Console.WriteLine("Search Results");
+                Console.WriteLine("====================\n");
+            }  
                 foreach (SOrder order in orderList)
                 {
                     Console.WriteLine(order);
-                    Console.WriteLine("====================");
+                    Console.WriteLine("====================\n");
                 }
                 
             

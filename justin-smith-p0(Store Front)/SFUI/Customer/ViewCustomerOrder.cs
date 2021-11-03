@@ -16,33 +16,44 @@ namespace SFUI
         public void Menu()
         {
             List<SOrder> orderList = _orderBL.GetCustomerOrderById(CustomerOrder._findCustOrder.CustId);
+            if (orderList.Count == 0)
+            {
+                Console.WriteLine("\n====================");
+                Console.WriteLine("No results found");
+                Console.WriteLine("====================\n");
+            }
+            else
+            {
+                Console.WriteLine("\n====================");
+                Console.WriteLine("Search Results");
+                Console.WriteLine("====================\n");
 
 
-                Console.WriteLine("====================");
-                foreach(SOrder order in orderList)
-                {
-                    Console.WriteLine(order);
-                    Console.WriteLine("====================");
-                }
-                
-            
+            }
+            foreach (SOrder order in orderList)
+            {
+                Console.WriteLine(order);
+                Console.WriteLine("====================\n");
+            }
+
+        
             Console.WriteLine("[0] - Go Back");
         }
 
-        public MenuType YourChoice()
-        {
-            string userChoice = Console.ReadLine();
-
-            switch (userChoice)
+            public MenuType YourChoice()
             {
-                case "0":
-                    return MenuType.CustomerOrder;
-                default:
-                    Console.WriteLine("Please input a valid response!");
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
-                    return MenuType.ViewCustomerOrder;
+                string userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "0":
+                        return MenuType.CustomerOrder;
+                    default:
+                        Console.WriteLine("Please input a valid response!");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.ViewCustomerOrder;
+                }
             }
         }
     }
-}

@@ -23,17 +23,21 @@ namespace SFDL
         /// </summary>
         /// <param name="p_id">This is the ID it will look for</param>
         /// <returns>Returns the Store</returns>
-        Store GetStoreById(int p_id);
+        List<Store> GetStoreById(int p_id);
 
         Customer GetCustomerById(int p_id);
 
         List<Customer> GetAllCustomer();
+
+        List<Product> GetAllProduct();
 
         List<Inventory> GetInventoryById(int p_id);
 
         List<SOrder> GetStoreOrderById(int p_id);
 
         List<SOrder> GetCustomerOrderById(int p_id);
+
+        List<Product> GetProductById(int p_id);
 
 
 

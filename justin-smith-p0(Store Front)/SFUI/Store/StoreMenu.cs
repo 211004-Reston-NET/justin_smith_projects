@@ -9,9 +9,8 @@ namespace SFUI
             Console.WriteLine("Welcome to the Store Menu!");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("[1] - View Stores");
-            Console.WriteLine("[2] - View All Products");
-            Console.WriteLine("[3] - View Store Inventory");
-            Console.WriteLine("[4] - View Store Orders");
+            Console.WriteLine("[2] - View Store Inventory");
+            Console.WriteLine("[3] - View Store Orders");
             Console.WriteLine("[0] - Go to MainMenu");
         }
 
@@ -24,10 +23,8 @@ namespace SFUI
                 case "1":
                     return MenuType.ShowStore;
                 case "2":
-                    return MenuType.ProductMenu;
-                case "3":
                     return MenuType.ShowInventory;
-                case "4":
+                case "3":
                     return MenuType.StoreOrder;
                 case "0":
                     return MenuType.MainMenu;

@@ -19,11 +19,11 @@ namespace SFUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "3":
-                    return MenuType.CustomerOrder;
+                case "1":
+                    return MenuType.ShowCustomer;
                 case "2":
                     return MenuType.AddCustomer;
-                case "1":
+                case "3":
                     return MenuType.CustomerOrder;
                 case "0":
                     return MenuType.MainMenu;

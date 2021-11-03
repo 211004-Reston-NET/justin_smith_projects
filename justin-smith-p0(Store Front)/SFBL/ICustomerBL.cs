@@ -26,7 +26,7 @@ namespace SFBL
         /// <param name="p_name">This is the string it will check to find customers if their name has those letters</param>
         /// <returns>It will return customers it found</returns>
 
-        List<Customer> GetCustomer(string p_name);
+        List<Customer> GetCustomerName(string p_name);
 
         /// <summary>
         ///  Will return a Customer based on the ID

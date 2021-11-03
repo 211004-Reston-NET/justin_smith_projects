@@ -16,16 +16,16 @@ namespace SFUI
         public void Menu()
         {   
             Console.Clear();
-            Console.WriteLine("====================");
+            Console.WriteLine("\n====================");
             Console.WriteLine("List of Stores");
-            Console.WriteLine("====================");
+            Console.WriteLine("====================\n");
 
             List<Store> listOfStores = _storeBL.GetAllStore();
 
             foreach (Store store in listOfStores)
             {
                 Console.WriteLine(store);
-                Console.WriteLine("====================");
+                Console.WriteLine("====================\n");
             }
             Console.WriteLine("[1] - Search for a Store by Name");
             Console.WriteLine("[2] - Search for a store by ID");

@@ -19,18 +19,21 @@ namespace SFUI
 
             if(listOfCust.Count == 0)
             {
+                Console.WriteLine("\n====================");
                 Console.WriteLine("No results found");
+                Console.WriteLine("====================\n");
             }
             else
             {
-                Console.WriteLine("This is the search result");
+                Console.WriteLine("\n====================");
+                Console.WriteLine("Search Results");
+                Console.WriteLine("====================\n");
             }
             
             foreach (Customer cust in listOfCust)
             {
-                Console.WriteLine("====================");
                 Console.WriteLine(cust);
-                Console.WriteLine("====================");
+                Console.WriteLine("====================\n");
             }
             Console.WriteLine("[0] - Go Back");
         }

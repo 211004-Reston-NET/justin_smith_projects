@@ -22,11 +22,11 @@ namespace SFUI
             Console.WriteLine("Address - " + _customer.CustAddress);
             Console.WriteLine("Email - " + _customer.CustEmail);
             Console.WriteLine("Phone - " + _customer.CustPhone);
-            Console.WriteLine("[5] - Add Customer");
-            Console.WriteLine("[4] - Input value for Name");
+            Console.WriteLine("[1] - Add Customer");
+            Console.WriteLine("[2] - Input value for Name");
             Console.WriteLine("[3] - Input value for Address");
-            Console.WriteLine("[2] - Input value for Email");
-            Console.WriteLine("[1] - Input value for Phone");
+            Console.WriteLine("[4] - Input value for Email");
+            Console.WriteLine("[5] - Input value for Phone");
             Console.WriteLine("[0] - Go Back");
             
         }
@@ -36,10 +36,14 @@ namespace SFUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "5":
+                case "1":
                     try
                     {
                         _customerBL.AddCustomer(_customer);
+                        Console.WriteLine("Customer Added");
+                        Console.WriteLine("Press Enter to Continue");
+                        Console.ReadLine();
+                        Console.Clear();
                     }
                     catch (System.Exception)
                     {
@@ -48,20 +52,20 @@ namespace SFUI
                         Console.ReadLine();
                         return MenuType.AddCustomer;
                     }
-                    return MenuType.AddCustomer;
-                case "4":
+                    return MenuType.CustomerMenu;
+                case "2":
                     Console.WriteLine("Type in the value for the Name");
                     _customer.CustName = Console.ReadLine();
                     return MenuType.AddCustomer;
                 case "3":
-                    Console.WriteLine("Type in the value for the Addres");
+                    Console.WriteLine("Type in the value for the Address");
                     _customer.CustAddress = Console.ReadLine();
                     return MenuType.AddCustomer;
-                case "2":
+                case "4":
                     Console.WriteLine("Type in the value of the Email");
                     _customer.CustEmail = Console.ReadLine();
                     return MenuType.AddCustomer;
-                case "1":
+                case "5":
                     Console.WriteLine("Type in the value for the Phone");
                     _customer.CustPhone = Console.ReadLine();
                     return MenuType.AddCustomer;

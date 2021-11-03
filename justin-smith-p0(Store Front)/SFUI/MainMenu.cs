@@ -10,6 +10,7 @@ namespace SFUI
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("[1] - View Customers");
             Console.WriteLine("[2] - View Stores");
+            Console.WriteLine("[3] - View All Products");
             Console.WriteLine("[0] - Exit");
         }
 
@@ -27,6 +28,8 @@ namespace SFUI
                     return MenuType.CustomerMenu;
                 case "2":
                     return MenuType.StoreMenu;
+                case "3":
+                    return MenuType.ShowProduct;
                 case "0":
                     return MenuType.Exit;
                 default:

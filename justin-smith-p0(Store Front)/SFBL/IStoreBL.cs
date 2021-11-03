@@ -34,7 +34,7 @@ namespace SFBL
         /// <param name="p_id">This is the ID it will check</param>
         /// <returns>Returns store it found</returns>
 
-        Store GetStoreById(int p_id);
+        List<Store> GetStoreById(int p_id);
 
         
 

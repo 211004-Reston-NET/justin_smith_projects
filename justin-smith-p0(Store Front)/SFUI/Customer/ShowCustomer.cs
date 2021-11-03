@@ -14,15 +14,19 @@ namespace SFUI
             _custBL = p_custBL;
         }
         public void Menu()
-        {
-            Console.WriteLine("List of Customer");
+
+        {   
+            
+            Console.WriteLine("\n====================");
+            Console.WriteLine("List of Customers");
+            Console.WriteLine("====================\n");
+
             List<Customer> listOfCustomers = _custBL.GetAllCustomer();
 
             foreach (Customer cust in listOfCustomers)
             {
-                Console.WriteLine("====================");
                 Console.WriteLine(cust);
-                Console.WriteLine("====================");
+                Console.WriteLine("====================\n");
             }
             Console.WriteLine("[1] - Search for a Customer by Name");
             Console.WriteLine("[2] - Search by Email");

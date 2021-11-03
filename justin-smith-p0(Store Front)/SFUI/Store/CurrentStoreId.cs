@@ -15,12 +15,27 @@ namespace SFUI
 
         public void Menu()
         {
-            Store store = _storeBL.GetStoreById(ShowStore._findStore.StoreId);
+            List<Store> listOfStore = _storeBL.GetStoreById(ShowStore._findStore.StoreId);
 
+            if(listOfStore.Count == 0)
+            {   
+                Console.WriteLine("\n====================");
+                Console.WriteLine("No results found");
+                Console.WriteLine("====================\n");
+            }
+            else
+            {
+                Console.WriteLine("\n====================");
+                Console.WriteLine("Search Results");
+                Console.WriteLine("====================\n");
 
-                Console.WriteLine("====================");
+            }    
+                foreach (Store store in listOfStore)
+            {
+                
                 Console.WriteLine(store);
-                Console.WriteLine("====================");
+                Console.WriteLine("====================\n");
+            }
             
             Console.WriteLine("[0] - Go Back");
         }

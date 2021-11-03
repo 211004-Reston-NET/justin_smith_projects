@@ -68,29 +68,37 @@ namespace SFDL
             // return listOfRest;
         }
 
-        public Model.Store GetStoreById(int p_id)
+        public List<Model.Store> GetStoreById(int p_id)
         {
-            Entity.Store storeToFind = _context.Stores.Find(p_id);
-            
-            return new Model.Store()
+
+            return _context.Stores 
+                                .Where(stor => stor.StoreId == p_id)
+                                .Select(store =>
+            new Model.Store()
             {
-                StoreId = storeToFind.StoreId,
-                StoreName = storeToFind.StoreName,
-                StoreAddress = storeToFind.StoreAddress,
-                StorePhone = storeToFind.StorePhone
-                
-                //This is the super ugly code that I avoided during demo that you need right now
-                //So if you are lazy instead of doing a mapper class
-                //This is all you need to do
-                //Select statement to convert each element to Model.Review
-                //ToList to convert it into a List collection instead of IEnumerable
-                
-                
-                // Reviews = storeToFind.Reviews.Select(rev => new Model.Review(){ 
-                //     Id = rev.RevId,
-                //     Rating = rev.RevRating
-                // }).ToList()
-            };
+                StoreId = store.StoreId,
+                StoreName = store.StoreName,
+                StoreAddress = store.StoreAddress,
+                StorePhone = store.StorePhone
+            }).ToList();
+            
+        }
+
+        public List<Model.SOrder> GetStoreOrderById(int p_id)
+        {
+
+            return _context.SOrders
+                                .Where(ord => ord.StoreId == p_id)
+                                .Select(order => 
+                new Model.SOrder()
+                {   
+                    OrderId = order.OrderId,
+                    StoreId = order.StoreId,
+                    CustId = order.CustId,
+                    OrderPrice = order.OrderPrice
+                }
+            ).ToList();
+        
         }
 
         public Model.Customer GetCustomerById(int p_id)
@@ -122,22 +130,8 @@ namespace SFDL
         // }
 
 
-        public List<Model.SOrder> GetStoreOrderById(int p_id)
-        {
-
-            return _context.SOrders
-                                .Where(ord => ord.StoreId == p_id)
-                                .Select(order => 
-                new Model.SOrder()
-                {   
-                    OrderId = order.OrderId,
-                    StoreId = order.StoreId,
-                    CustId = order.CustId,
-                    OrderPrice = order.OrderPrice
-                }
-            ).ToList();
         
-        }
+
 
         public List<Model.SOrder> GetCustomerOrderById(int p_id)
         {
@@ -175,6 +169,26 @@ namespace SFDL
         
         }
 
+        public List<Model.Product> GetProductById(int p_id)
+        {
+
+
+            return _context.Products
+                                .Where(prod => prod.ProdId == p_id)
+                                .Select(product => 
+                new Model.Product()
+                {
+                    ProdId = product.ProdId,
+                    ProdName = product.ProdName,
+                    ProdPrice = product.ProdPrice,
+                    ProdDescription = product.ProdDescription
+                }
+            ).ToList();
+        
+        }
+
+
+
         
 
         public List<Model.Customer> GetAllCustomer()
@@ -189,6 +203,21 @@ namespace SFDL
                 CustEmail = customer.CustEmail,
                 CustPhone = customer.CustPhone
 
+                }
+            ).ToList();
+
+        }
+
+        public List<Model.Product> GetAllProduct()
+        {
+            //Method Syntax
+            return _context.Products.Select(product => 
+                new Model.Product()
+                {
+                ProdId = product.ProdId,
+                ProdName = product.ProdName,
+                ProdPrice = product.ProdPrice,
+                ProdDescription = product.ProdDescription,
                 }
             ).ToList();
 
