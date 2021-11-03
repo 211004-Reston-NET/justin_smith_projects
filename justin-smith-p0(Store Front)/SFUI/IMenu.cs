@@ -6,16 +6,32 @@
         MainMenu,
         CustomerMenu,
         StoreMenu,
+
         AddCustomer,
-        SearchCustomers,
-        SearchStores,
+        ShowCustomer,
+        CurrentCustomer,
+        CurrentCustomerName,
+        CurrentCustomerEmail,
+
+
+
+        ShowStore,
+        CurrentStoreName,
+        CurrentStoreId,
+
+
+        ShowInventory,
+        CurrentInventoryId,
+
+
+
         PlaceOrder,
         ViewOrder,
-        AddStore,
         OrderMenu,
         ProductMenu,
-        
         Exit,
+
+        ReviewMenu
     }
 
 public interface IMenu

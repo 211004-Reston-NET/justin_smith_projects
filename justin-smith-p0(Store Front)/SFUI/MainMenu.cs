@@ -10,9 +10,12 @@ namespace SFUI
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("[4] - View Customers");
             Console.WriteLine("[3] - View Stores");
-            Console.WriteLine("[2] - View Orders");
-            Console.WriteLine("[1] - View Products");
             Console.WriteLine("[0] - Exit");
+        }
+
+         public void ThisIsOnlyForMainMenuCFile()
+        {
+            throw new NotImplementedException();
         }
 
         public MenuType YourChoice()
@@ -24,10 +27,6 @@ namespace SFUI
                     return MenuType.CustomerMenu;
                 case "3":
                     return MenuType.StoreMenu;
-                case "2":
-                    return MenuType.OrderMenu;
-                case "1":
-                    return MenuType.ProductMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

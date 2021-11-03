@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 namespace SFModels
 {
     public class Customer
     {
-        public string Name{ get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-        public List<string> Orders { get; set; }
+        public int CustId { get; set; }
+        public string CustName { get; set; }
+        public string CustAddress { get; set; }
+        public string CustEmail { get; set; }
+        public string CustPhone { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {CustId} \nName: {CustName}\nAddress: {CustAddress} \nEmail: {CustEmail} \nPhone: {CustPhone}";
+        }
 
     }
 }

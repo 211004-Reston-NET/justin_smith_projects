@@ -16,8 +16,8 @@ namespace SFDL
         {
             List<Store> listOfStores = GetAllStore();
             listOfStores.Add(p_store);
+            return null;
 
-            _j
         }
         
         public List<Store> GetAllStore(){

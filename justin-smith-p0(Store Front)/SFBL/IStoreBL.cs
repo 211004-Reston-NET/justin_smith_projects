@@ -10,7 +10,7 @@ namespace SFBL
         /// It will also capitalize every name of the store
         /// </summary>
         /// <returns>It will return a list of stores</return>
-        List<Store> GetAllStores();
+        List<Store> GetAllStore();
 
          /// <summary>
         /// Adds a store to the database
@@ -18,13 +18,13 @@ namespace SFBL
         /// <param name="p_store">This is the store we are adding</param>
         /// <returns>It returns the added store</returns>
 
-        Store AddStore(Store p_store);
+        // Store AddStore(Store p_store);
 
-        /// <summary>
-        /// Will find multiple stores given a name
-        /// </summary>
-        /// <param name="p_name">This is the string it will check to find stores if their name has those letters</param>
-        /// <returns>It will return stores it found</returns>
+        // /// <summary>
+        // /// Will find multiple stores given a name
+        // /// </summary>
+        // /// <param name="p_name">This is the string it will check to find stores if their name has those letters</param>
+        // /// <returns>It will return stores it found</returns>
 
         List<Store> GetStore(string p_name);
 

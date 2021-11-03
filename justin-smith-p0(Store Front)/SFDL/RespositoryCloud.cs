@@ -7,39 +7,44 @@ namespace SFDL
 {
     public class RespositoryCloud : IRepository
     {
-        private Entity.SFDatabaseContext _context;
-        public RespositoryCloud(Entity.SFDatabaseContext p_context) 
+        private Entity.SFDataBaseContext _context;
+        public RespositoryCloud(Entity.SFDataBaseContext p_context) 
         {
             _context = p_context;
         }
 
-        public Model.Store AddStore(Model.Store p_store)
+
+        public Model.Customer AddCustomer(Model.Customer p_customer)
         {
-            _context.Stores.Add
+            _context.Customers.Add
             (
-                new Entity.Store()
+                new Entity.Customer()
                 {
-                    StoreName = p_store.Name,
-                    StoreAddress = p_store.Address,
-                    StorePhone = p_store.Phone
-                   
+                    CustName = p_customer.CustName,
+                    CustAddress = p_customer.CustAddress,
+                    CustEmail = p_customer.CustEmail,
+                    CustPhone = p_customer.CustPhone
+
                 }
             );
 
             //This method will save the changes made to the database
             _context.SaveChanges();
 
-            return p_store;
+            return p_customer;
         }
 
         public List<Model.Store> GetAllStore()
         {
             //Method Syntax
-            return _context.Store.Select(store => 
+            return _context.Stores.Select(store => 
                 new Model.Store()
                 {
-                    Name = store.StoreName,
-                    Address = store.StoreAddress,
+                    StoreId = store.StoreId,
+                    StoreName = store.StoreName,
+                    StoreAddress = store.StoreAddress,
+                    StorePhone = store.StorePhone
+
                 }
             ).ToList();
 
@@ -68,9 +73,11 @@ namespace SFDL
             
             return new Model.Store()
             {
-                Id = storeToFind.StoreId,
-                Name = storeToFind.StoreName,
-                Address = storeToFind.StoreAddress,
+                StoreId = storeToFind.StoreId,
+                StoreName = storeToFind.StoreName,
+                StoreAddress = storeToFind.StoreAddress,
+                StorePhone = storeToFind.StorePhone
+                
                 //This is the super ugly code that I avoided during demo that you need right now
                 //So if you are lazy instead of doing a mapper class
                 //This is all you need to do
@@ -85,8 +92,50 @@ namespace SFDL
             };
         }
 
+        public Model.Customer GetCustomerById(int p_id)
+        {
+            Entity.Customer customerToFind = _context.Customers.Find(p_id);
+            
+            return new Model.Customer()
+            {
+                CustId = customerToFind.CustId,
+                CustName = customerToFind.CustName,
+                CustAddress = customerToFind.CustAddress,
+                CustEmail = customerToFind.CustEmail,
+                CustPhone = customerToFind.CustPhone
+            };
+
+        }
+        
+        public Model.Inventory GetInventoryById(int p_id)
+        {
+            Entity.Inventory inventoryToFind = _context.Inventories.Find(p_id);
+            
+            return new Model.Inventory()
+            {
+                StoreId = inventoryToFind.StoreId,
+                ProdId = inventoryToFind.ProdId,
+                Stock = inventoryToFind.Stock
+            };
+        }
 
 
+        public List<Model.Customer> GetAllCustomer()
+        {
+            //Method Syntax
+            return _context.Customers.Select(customer => 
+                new Model.Customer()
+                {
+                CustId = customer.CustId,
+                CustName = customer.CustName,
+                CustAddress = customer.CustAddress,
+                CustEmail = customer.CustEmail,
+                CustPhone = customer.CustPhone
+
+                }
+            ).ToList();
+
+        }
 
 
         // public List<Model.Review> GetAllReview(Model.Restaurant p_rest)

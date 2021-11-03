@@ -10,7 +10,7 @@ namespace SFDL
         /// </summary>
         /// <param name="p_store">This is the store we will be adding to the database</param>
         /// <returns>It will just return the store we are adding</returns>
-        Store AddStore(Store p_store);
+        Customer AddCustomer(Customer p_customer);
 
         /// <summary>
         /// This will return a list of stores stored in the database
@@ -24,6 +24,12 @@ namespace SFDL
         /// <param name="p_id">This is the ID it will look for</param>
         /// <returns>Returns the Store</returns>
         Store GetStoreById(int p_id);
+
+        Customer GetCustomerById(int p_id);
+
+        List<Customer> GetAllCustomer();
+
+        Inventory GetInventoryById(int p_id);
         
     }
 }

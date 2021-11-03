@@ -6,24 +6,26 @@ namespace SFModels
 {
     public class Store
     {
-        public Store(){
-            this.Name = "Name";
-            this.Address = "Address";
-        }
-        public int Id {get; set;}
-        public string Name{ get; set; }
-        public string Address { get; set; }
+        // public Store(){
+        //     this.StoreName = "Name";
+        //     this.StoreAddress = "Address";
+        //     this.StorePhone = "Phone";
 
-        public string Phone { get; set;}
-        
-        public List<string> Products { get; set; }
+        // }
 
-        public List<string> Orders { get; set; }
+        public int StoreId { get; set; }
+        public string StoreName { get; set; }
+        public string StoreAddress { get; set; }
+        public string StorePhone { get; set; }
+
 
         public override string ToString()
         {
-            return $"ID: {Id} \nName: {Name}\nState: {Address}";
+            return $"ID: {StoreId}\nName: {StoreName}\nAddress: {StoreAddress} \nPhone: {StorePhone}";
         }
+
+
+
 
 
 

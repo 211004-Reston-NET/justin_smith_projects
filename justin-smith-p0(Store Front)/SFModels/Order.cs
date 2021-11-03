@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SFModels
 {
-    public class Orders
+    public class Order
     {
         public string Location{ get; set; }
 

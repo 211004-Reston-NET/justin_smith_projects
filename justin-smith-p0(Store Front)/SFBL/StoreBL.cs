@@ -23,23 +23,23 @@ namespace SFBL
             _repo = p_repo;
         }
 
-        public Store AddStore(Store p_store)
-        {
-            if (p_store.Name == null || p_store.Address == null)
-            {
-                throw new Exception("You must have a value in all of the properties of the store class");
-            }
+        // public Store AddStore(Store p_store)
+        // {
+        //     if (p_store.StoreName == null || p_store.StoreAddress == null)
+        //     {
+        //         throw new Exception("You must have a value in all of the properties of the store class");
+        //     }
 
-            return _repo.AddStore(p_store);
-        }
+        //     return _repo.AddStore(p_store);}
+        
 
-        public List<Store> GetAllStores()
+        public List<Store> GetAllStore()
         {
             //Maybe my business operation needs to capitalize every name of a store
             List<Store> listOfStore = _repo.GetAllStore();
             for (int i = 0; i < listOfStore.Count; i++)
             {
-                listOfStore[i].Name = listOfStore[i].Name.ToLower(); 
+                listOfStore[i].StoreName = listOfStore[i].StoreName.ToLower(); 
             }
 
             return listOfStore;
@@ -53,8 +53,19 @@ namespace SFBL
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfStore.Where(store => store.Name.ToLower().Contains(p_name.ToLower())).ToList();
+            return listOfStore.Where(store => store.StoreName.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        //  public List<Store> GetStore(int p_name)
+        // {
+        //     List<Store> listOfStore = _repo.GetAllStore();
+            
+        //     //Select method will give a list of boolean if the condition was true/false
+        //     //Where method will give the actual element itself based on some condition
+        //     //ToList method will convert into List that our method currently needs to return.
+        //     //ToLower will lowercase the string to make it not case sensitive
+        //     return listOfStore.Where(store => store.StoreId == p_name).ToList();
+        // }
         
         public Store GetStoreById(int p_id)
         {

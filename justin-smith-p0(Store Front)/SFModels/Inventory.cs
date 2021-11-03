@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-#nullable disable
-
-namespace SFDL.Entities
+namespace SFModels
 {
-    public partial class Inventory
+    public class Inventory
     {
         public int StoreId { get; set; }
         public int ProdId { get; set; }
@@ -13,5 +11,11 @@ namespace SFDL.Entities
 
         public virtual Product Prod { get; set; }
         public virtual Store Store { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"StoreId: {StoreId}\nProductId: {ProdId}\nStock: {Stock}";
+        }
     }
 }
